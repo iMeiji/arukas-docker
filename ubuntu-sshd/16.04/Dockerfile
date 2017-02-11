@@ -43,7 +43,7 @@ RUN cat > check.sh <<-EOF
 		echo "ff is running!" `date` >> /var/log/check.log
 	else
 		echo "ff is topped!"  `date` >> /var/log/check.log
-    /root/vnc.sh
+    		/root/vnc.sh
 	fi
 	EOF
 	

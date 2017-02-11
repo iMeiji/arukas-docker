@@ -37,6 +37,7 @@ export DISPLAY=localhost:10000.0
 /usr/lib/firefox/firefox
 EOF
 	
+<<<<<<< HEAD
 RUN 
 cat > check.sh <<-EOF
 #!/bin/bash
@@ -48,6 +49,18 @@ else
 	/root/vnc.sh
 fi
 EOF
+=======
+RUN cat > check.sh <<-EOF
+	#!/bin/bash
+	if ps -ef|grep "firefox"|grep -v "grep"
+	then
+		echo "ff is running!" `date` >> /var/log/check.log
+	else
+		echo "ff is topped!"  `date` >> /var/log/check.log
+    		/root/vnc.sh
+	fi
+	EOF
+>>>>>>> origin/master
 	
 RUN chmod a+x /root/*.sh  
 RUN echo '*/1 * * * * root bash /root/check.sh' >> /etc/crontab

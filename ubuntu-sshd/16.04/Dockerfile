@@ -13,7 +13,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 EXPOSE 22
 
-#####################
+# My custom
 WORKDIR /root/
 
 RUN echo 'deb http://archive.ubuntu.com/ubuntu/ xenial-security multiverse' >> /etc/apt/sources.list
@@ -26,6 +26,10 @@ RUN apt-get update && apt-get upgrade -y \
 
 RUN wget https://addons.mozilla.org/firefox/downloads/latest/vagex-firefox-add-on \
 	&& wget https://www.ebesucher.com/data/firefoxaddon/latest.xpi
+	
+	
+# xvnc server porst, if $DISPLAY=:1 port will be 5901	
+EXPOSE 15900	
 	
 
 ADD scripts /root

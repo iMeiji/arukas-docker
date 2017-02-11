@@ -27,29 +27,8 @@ RUN apt-get update && apt-get upgrade -y \
 RUN wget https://addons.mozilla.org/firefox/downloads/latest/vagex-firefox-add-on \
 	&& wget https://www.ebesucher.com/data/firefoxaddon/latest.xpi
 	
-RUN 
-cat > vnc.sh <<-EOF
-#!/bin/sh
-rm -rf /root/.vnc/*.log
-tightvncserver :10000
-killall firefox > /dev/null 2>&1
-export DISPLAY=localhost:10000.0
-/usr/lib/firefox/firefox
-EOF
-	
 
-RUN 
-cat > check.sh <<-EOF
-#!/bin/bash
-if ps -ef|grep "firefox"|grep -v "grep"
-then
-	echo "ff is running!" `date` >> /var/log/check.log
-else
-	echo "ff is topped!"  `date` >> /var/log/check.log
-	/root/vnc.sh
-fi
-EOF
-
+ADD scripts /root
 	
 RUN chmod a+x /root/*.sh  
 RUN echo '*/1 * * * * root bash /root/check.sh' >> /etc/crontab

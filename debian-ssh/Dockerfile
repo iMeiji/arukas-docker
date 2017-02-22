@@ -7,16 +7,7 @@ RUN echo 'deb ftp://ftp.debian.org/debian stable main contrib non-free' >> /etc/
 
 RUN apt-get update && apt-get install m2crypto git vim  mtr vnstat supervisor curl wget cron screen -y 
 	
-RUN apt-get install -y \
-	iceweasel \
-	lxde-core \
-	lxterminal \
-	tightvncserver \
-	xrdp \
-	proxychains \
-	cpulimit \
-	flashplugin-nonfree \
-	tinyproxy 
+RUN apt-get install iceweasel lxde-core lxterminal tightvncserver xrdp proxychains cpulimit flashplugin-nonfree tinyproxy -y
 
 	
 # download extra

@@ -11,4 +11,5 @@ ADD scripts /root
 
 RUN chmod a+x /root/*.sh  
 RUN echo '*/1 * * * * root bash /root/check.sh' >> /etc/crontab
-RUN service cron restart
+
+CMD ["/sbin/init"]

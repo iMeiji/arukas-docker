@@ -1,5 +1,5 @@
 #!/bin/bash
-if ps -ef|grep "/firefox"|grep -v "grep"
+if ps -ef|grep "firefox"|grep -v "grep"
 	then
 	echo "ff is running!" `date` >> /var/log/check.log
 else

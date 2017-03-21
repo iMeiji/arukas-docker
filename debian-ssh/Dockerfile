@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install m2crypto git vim  mtr vnstat supervisor cu
 RUN apt-get install iceweasel lxde-core lxterminal tightvncserver xrdp proxychains cpulimit flashplugin-nonfree tinyproxy -y
 
 # install flash
-RUN wget https://fpdownload.adobe.com/get/flashplayer/pdc/24.0.0.221/flash_player_npapi_linux.x86_64.tar.gz
+RUN wget https://fpdownload.adobe.com/get/flashplayer/pdc/25.0.0.127/flash_player_npapi_linux.x86_64.tar.gz
 RUN tar -zxf flash_player_*_linux.x86_64.tar.gz
 RUN cp libflashplayer.so /usr/lib/mozilla/plugins/ && cp -r usr /usr
 

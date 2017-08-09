@@ -3,14 +3,12 @@ FROM itscaro/debian-ssh
 # My custom
 WORKDIR /root/
 
-RUN echo 'deb ftp://ftp.debian.org/debian stable main contrib non-free' >> /etc/apt/sources.list
-
 RUN apt-get update && apt-get install m2crypto git vim  mtr vnstat supervisor curl wget cron screen -y 
 
-RUN apt-get install iceweasel lxde-core lxterminal tightvncserver xrdp cpulimit flashplugin-nonfree -y
+RUN apt-get install iceweasel lxde-core lxterminal tightvncserver xrdp cpulimit htop -y
 
 # install flash
-RUN wget https://fpdownload.adobe.com/get/flashplayer/pdc/25.0.0.171/flash_player_npapi_linux.x86_64.tar.gz
+RUN wget https://fpdownload.adobe.com/get/flashplayer/pdc/26.0.0.151/flash_player_npapi_linux.x86_64.tar.gz
 RUN tar -zxf flash_player_*_linux.x86_64.tar.gz
 RUN cp libflashplayer.so /usr/lib/mozilla/plugins/ && cp -r usr /usr
 

@@ -21,13 +21,14 @@ RUN echo 'deb-src http://archive.ubuntu.com/ubuntu/ xenial-security multiverse' 
 
 RUN apt-get update && apt-get install m2crypto git vim  mtr vnstat supervisor curl wget cron screen -y 
 
-RUN apt-get install firefox lxde-core lxterminal tightvncserver xrdp proxychains cpulimit flashplugin-nonfree -y
+RUN apt-get install firefox lxde-core lxterminal tightvncserver xrdp proxychains cpulimit flashplugin-nonfree htop -y
 
 # download extra
 RUN wget https://addons.mozilla.org/firefox/downloads/latest/vagex-firefox-add-on/addon-321174-latest.xpi \
-&& wget https://www.ebesucher.com/data/firefoxaddon/latest.xpi
+&& wget https://www.ebesucher.com/data/firefoxaddon/latest.xpi \
+&& wget https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/addon-2464-latest.xpi
 
-RUN git clone -b manyuser https://github.com/shadowsocksr/shadowsocksr.git	
+RUN git clone -b manyuser https://github.com/shadowsocksrr/shadowsocksr.git	
 
 # xvnc server porst, if $DISPLAY=:1 port will be 5901	
 EXPOSE 15900
